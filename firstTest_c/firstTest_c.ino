@@ -24,15 +24,15 @@ void setup() {
   // setup ODB
   obd.begin();    
   
-  obd.write("ATZ\r");
-  obd.receive(buffer);
-  lcd.print("1");
-  obd.write("ATE0\r");
-  obd.receive(buffer);
-  lcd.print("2");
-  obd.write("ATL1\r");  
-  obd.receive(buffer);
-  lcd.print("3");
+//  obd.write("ATZ\r");
+//  obd.receive(buffer);
+//  lcd.print("1");
+//  obd.write("ATE0\r");
+//  obd.receive(buffer);
+//  lcd.print("2");
+//  obd.write("ATL1\r");  
+//  obd.receive(buffer);
+//  lcd.print("3");
   
   while(!obd.init()); // loop until success
   
