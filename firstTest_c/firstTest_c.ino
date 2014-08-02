@@ -7,6 +7,7 @@
 #include <LiquidCrystal.h>
 #include <SPI.h>
 
+
 COBD obd; // ODB variable
 int rpm;
 
@@ -15,13 +16,26 @@ int rpm;
 LiquidCrystal lcd(10);
 
 void setup() {
+  char buffer[255];
+  
   // setup LCD
-  lcd.begin(16, 2);
-  lcd.print("initalizing...");
+  lcd.begin(16, 2);  
   
   // setup ODB
-  obd.begin();
+  obd.begin();    
+  
+  obd.write("ATZ\r");
+  obd.receive(buffer);
+  lcd.print("1");
+  obd.write("ATE0\r");
+  obd.receive(buffer);
+  lcd.print("2");
+  obd.write("ATL1\r");  
+  obd.receive(buffer);
+  lcd.print("3");
+  
   while(!obd.init()); // loop until success
+  
   lcd.clear();
   lcd.setCursor(0,0);
 }
