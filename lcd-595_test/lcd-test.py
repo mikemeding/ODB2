@@ -1,4 +1,4 @@
-#!/bin/python
+#!/usr/bin/python
 ### ------Shift Register 74HC595 PinOut------
 ### [SR Pin 14 (DS) Pin6, of LCD shield] to RasPi GPIO - [datapin]
 ### [SR Pin 12 (ST_CP), Pin4 of LCD shield] to RasPi GPIO - [latchpin]
@@ -64,3 +64,12 @@ def INIT():
 def PRINT(text, col, row):
  lcdPosition(lcd, col, row)
  lcdPrintf(lcd, text)
+def main():
+ # Do stuff
+ print "init"
+ INIT()
+ print "print"
+ lcdPrintf(lcd, "stuff")
+
+if __name__ == "__main__":
+ main()
